@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="../../_app/immutable/entry/start.CH5w6lId.js" rel="modulepreload">
+		<link href="../../_app/immutable/entry/payload.DSmR2FwN.js" rel="modulepreload">
+		<link href="../../_app/immutable/chunks/CRzLMJPS.js" rel="modulepreload">
+		<link href="../../_app/immutable/chunks/B2Ul7l_u.js" rel="modulepreload">
+		<link href="../../_app/immutable/chunks/BCPXOG7W.js" rel="modulepreload">
+		<link href="../../_app/immutable/chunks/Dh1V97Jm.js" rel="modulepreload">
+		<link href="../../_app/immutable/entry/app.B0VQBUZD.js" rel="modulepreload">
+		<link href="../../_app/immutable/nodes/0.C9KfiiPz.js" rel="modulepreload">
+		<link href="../../_app/immutable/chunks/DK3Fl9T5.js" rel="modulepreload">
+		<link href="../../_app/immutable/nodes/5.BdxSa_RB.js" rel="modulepreload">
+		<link href="../../_app/immutable/chunks/CUrJd1M9.js" rel="modulepreload">
+		<link href="../../_app/immutable/chunks/BTPwLomz.js" rel="modulepreload">
+		<link href="../../_app/immutable/chunks/CVzl_KNK.js" rel="modulepreload">
+		<link href="../../_app/immutable/chunks/BIy4WKJS.js" rel="modulepreload">
+		<!--e2jw2j--><!----><title>#4471 · what the merged reports show · support kb</title>
+		<link href="../../_app/immutable/assets/runbook.COyw0cbZ.css" rel="stylesheet">
+		<link href="../../_app/immutable/assets/Callout.AbLv9dM_.css" rel="stylesheet">
+		<link href="../../_app/immutable/assets/CauseTable.DuKfINX_.css" rel="stylesheet">
+		<link href="../../_app/immutable/assets/_page.DjTqB5nJ.css" rel="stylesheet">
+  </head>
+  <body><!--[--><!--[--><!--[0--><!--[--><!--[--><!--[-1--><!--[--><div class="kb svelte-e2jw2j"><header><a class="crumb svelte-e2jw2j" href="/kb">support desk · kb</a> <h1 class="svelte-e2jw2j">#4471 · what the merged reports show</h1> <p class="meta svelte-e2jw2j"><span>owner <b>userMatMik</b></span> <span class="status open svelte-e2jw2j">open</span> <span class="svelte-e2jw2j">reviewed 2026-10-28 · 0 days ago</span></p></header> <!--[-1--><!--]--> <main><p><a href="/kb/incidents/4471">#4471</a> was merged by subject line (<a href="/kb/decisions/0001-dedupe-by-subject">decision 0001</a>)
+and marked known: one issue, one fix queued. The desk’s own table says otherwise. Its reports are
+two problems with two causes, and the queued parser fix closes only one of them.</p> <aside class="warn svelte-17bri61"><!---->Not one issue. Each problem below has its own ticket and its own fix.<!----></aside><!----> <h2>What #4471 holds</h2> <p class="sum svelte-12oyimm"><strong>412</strong> reports merged into #4471 · <strong>2</strong> causes</p> <table><thead><tr><th>cause</th><th>reports</th><th>tagged as</th><th>tenants</th><th>seen</th><th></th></tr></thead><tbody><!--[--><tr class="svelte-12oyimm"><td class="svelte-12oyimm"><code>parser</code></td><td class="svelte-12oyimm">379</td><td class="tags svelte-12oyimm">parser ×356 · hint ×23</td><td class="svelte-12oyimm">11</td><td class="svelte-12oyimm">2026-04-01 → 2026-10-04</td><td class="svelte-12oyimm">#4471</td></tr><tr class="svelte-12oyimm wrong"><td class="svelte-12oyimm"><code>hint</code></td><td class="svelte-12oyimm">33</td><td class="tags svelte-12oyimm">hint ×18 · parser ×15</td><td class="svelte-12oyimm">3</td><td class="svelte-12oyimm">2026-04-17 → 2026-09-22</td><td class="svelte-12oyimm">not this ticket — no ticket of its own</td></tr><!--]--></tbody></table> <!--[--><!--[0--><p class="note svelte-12oyimm">5 reports read as a one-day move; filed under <code>parser</code> by tenant.</p><!--]--><!--[-1--><!--]--><!--]--><!----> <p>This is the desk’s own view, as exported on 4 October: one report per id (the export lists some
+reports twice), each placed by its tenant and channel in <code>causes.ts</code>, never by subject or intake tag.
+The table marks the <code>hint</code> row “no ticket of its own”: it has one now, #2.</p> <h2>One ticket per problem</h2> <p class="sum svelte-xskqqx"><strong>412</strong> reports merged into #4471 (427 rows exported, 15
+  reports listed twice) · <strong>2</strong> tickets</p> <table><thead><tr><th>problem</th><th>desk row</th><th>reports</th><th>tenants</th><th>seen</th><th>ticket</th></tr></thead><tbody><!--[--><tr><td>dates read month first</td><td><code>parser</code></td><td>379</td><td>11</td><td>2026-04-01 → 2026-10-04</td><td>#1</td></tr><tr><td>booking-v3 hint asks for the month first</td><td><code>hint</code></td><td>33</td><td>3</td><td>2026-04-17 → 2026-09-22</td><td>#2</td></tr><!--]--></tbody></table> <!--[--><!--[0--><p class="note svelte-xskqqx">5 of the 379 in #1 are reports the desk read as a one-day move
+      (R-41202, R-41209, R-41236, R-41344, R-41620), counted there, where the desk files them.</p><!--]--><!--[-1--><!--]--><!--]--><!----> <h3><code>parser</code>: dates read month first (#1)</h3> <p>The shared parser reads every date month first. Our tenants all write the day first, so a booking for
+7 April comes out as 4 July. It reaches every tenant, through the app, by email and through the
+booking-v2 form. This is the bug #4471 was opened for, and the fix that is queued.</p> <p>Five of these the desk read as a one-day move (<code>desk-notes.json</code>); the desk files and counts them under <code>parser</code>, and the export gives them no other cause.</p> <h3><code>hint</code>: booking-v3 asks for the month first (#2)</h3> <p>booking-v3 prints <code>MM/DD/YYYY</code> under its date field. On a day-first tenant, people type the month
+first as the hint tells them, and the form reads the date the tenant’s way, day first. The parser fix
+does not reach it: only the form does, on booking-v3 tenants.</p> <h2>How to read a report</h2> <ul><li>Place a report by its tenant’s locale and booking form, not by its subject. The same subjects come
+in for both problems above.</li> <li>Do not use the intake tag. It follows the reporter’s browser, not the cause.</li></ul> <!--[0--><p class="stamp svelte-1280m42">desk ref <b class="svelte-1280m42">DR-T7DG-Y05M</b></p><!--]--><!----><!----></main> <footer class="svelte-e2jw2j">Pages are written by people. Tables and charts are built from data at render time.</footer></div><!--]--><!--]--><!--]--><!----><!--]--><!--]--><!--]--><!----> <!--[-1--><!--]--><!--]-->
+			
+			<script>
+				{
+					__sveltekit_16900mo = {
+						base: new URL("../..", location).pathname.slice(0, -1),
+						version: "1793219722510"
+					};
+
+					const element = document.currentScript.parentElement;
+
+					import("../../_app/immutable/entry/start.CH5w6lId.js").then(async (kit) => {
+						kit.init(__sveltekit_16900mo);
+						const app = await import("../../_app/immutable/entry/app.B0VQBUZD.js");
+						kit.start(app, element, {
+							node_ids: [0, 5],
+							data: [null,null],
+							form: null,
+							error: null
+						});
+					});
+				}
+			</script>
+		</body>
+</html>

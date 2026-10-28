@@ -1,0 +1,58 @@
+---
+layout: runbook
+title: '#4471 · what the merged reports show'
+owner: userMatMik
+status: open
+reviewed: 2026-10-28
+signature: 'v1.eyJzdWIiOiIzMDA1IiwiYXVkIjoiY2hhbGxlbmdlOndoYXQtaXQtc2hvd3MiLCJpYXQiOjE3OTMyMTM5NjMsImV4cCI6MTc5MzMwMDM2M30.3c8s4T7YewBQ5rvUnBRw-D38V6-pHJec0oL7jwna8zo'
+---
+
+<script>
+  import CauseTable from '#lib/kb/CauseTable.svelte';
+  import SplitTable from '#lib/kb/SplitTable.svelte';
+  import RenderStamp from '#lib/kb/RenderStamp.svelte';
+  import Callout from '#lib/kb/Callout.svelte';
+</script>
+
+[#4471](/kb/incidents/4471) was merged by subject line ([decision 0001](/kb/decisions/0001-dedupe-by-subject))
+and marked known: one issue, one fix queued. The desk's own table says otherwise. Its reports are
+two problems with two causes, and the queued parser fix closes only one of them.
+
+<Callout kind="warn">
+Not one issue. Each problem below has its own ticket and its own fix.
+</Callout>
+
+## What #4471 holds
+
+<CauseTable ticket={4471} />
+
+This is the desk's own view, as exported on 4 October: one report per id (the export lists some
+reports twice), each placed by its tenant and channel in `causes.ts`, never by subject or intake tag.
+The table marks the `hint` row "no ticket of its own": it has one now, #2.
+
+## One ticket per problem
+
+<SplitTable ticket={4471} />
+
+### `parser`: dates read month first (#1)
+
+The shared parser reads every date month first. Our tenants all write the day first, so a booking for
+7 April comes out as 4 July. It reaches every tenant, through the app, by email and through the
+booking-v2 form. This is the bug #4471 was opened for, and the fix that is queued.
+
+Five of these the desk read as a one-day move (`desk-notes.json`); the desk files and counts them under
+`parser`, and the export gives them no other cause.
+
+### `hint`: booking-v3 asks for the month first (#2)
+
+booking-v3 prints `MM/DD/YYYY` under its date field. On a day-first tenant, people type the month
+first as the hint tells them, and the form reads the date the tenant's way, day first. The parser fix
+does not reach it: only the form does, on booking-v3 tenants.
+
+## How to read a report
+
+- Place a report by its tenant's locale and booking form, not by its subject. The same subjects come
+  in for both problems above.
+- Do not use the intake tag. It follows the reporter's browser, not the cause.
+
+<RenderStamp {signature} />

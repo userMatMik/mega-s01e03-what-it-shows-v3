@@ -1,0 +1,1 @@
+export{n as component}from"../chunks/YX22L_Ud.js";

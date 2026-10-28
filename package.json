@@ -1,0 +1,18 @@
+{
+  "name": "support-kb",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "analyze": "node tools/analyze.ts",
+    "verify": "node tools/verify.ts",
+    "build": "vite build"
+  },
+  "devDependencies": {
+    "@sveltejs/adapter-static": "4.0.0",
+    "@sveltejs/kit": "3.1.0",
+    "@sveltejs/vite-plugin-svelte": "7.3.1",
+    "mdsvex": "0.12.8",
+    "svelte": "5.57.3",
+    "vite": "8.3.5"
+  }
+}
